@@ -1,0 +1,6 @@
+{"version": 1, "project": "proofs/id_space", "modules": ["FalkorIdSpace"],
+ "claims": [
+  {"says": "Commit-time validation accepts a write batch exactly when its id count adds up and the ids it took run without gaps from where the write began.", "theorem": "IdSpaceModel.verify_ok_iff", "about": "model"},
+  {"says": "Ids reserved for a write are all different, and none is already taken or already handed out.", "theorem": "IdSpaceModel.reserve_fresh", "about": "model"},
+  {"says": "In every consistent state the live count is exactly the number of live ids.", "theorem": "IdSpaceModel.live_eq", "about": "model"},
+  {"says": "Creating ids either applies the whole batch or changes nothing and says why.", "theorem": "IdSpaceModel.create_spec", "about": "model"}]}
