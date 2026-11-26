@@ -1,0 +1,14 @@
+name: va-verify
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    uses: verificationalliance/verify/.github/workflows/lean.yml@6fdf9a0870d09204e776d2fc357d96acb3258eb8 # workflow-10
+    permissions:
+      contents: read
+      id-token: write
+      attestations: write
