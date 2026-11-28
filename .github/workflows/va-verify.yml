@@ -1,13 +1,21 @@
 name: va-verify
+run-name: va-verify ${{ inputs.manifest || '.verificationalliance.json' }}
 on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      manifest:
+        description: The manifest to check.
+        type: string
+        default: .verificationalliance.json
 permissions:
   contents: read
 jobs:
   verify:
     uses: verificationalliance/verify/.github/workflows/lean.yml@6fdf9a0870d09204e776d2fc357d96acb3258eb8 # workflow-10
+    with:
+      manifest: ${{ inputs.manifest || '.verificationalliance.json' }}
     permissions:
       contents: read
       id-token: write
